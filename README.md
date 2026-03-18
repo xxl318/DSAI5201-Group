@@ -88,7 +88,8 @@ Example:
 ```bash
 python src/prepare_dataset.py \
   --output_csv results/sampled_xsum_with_genre.csv \
-  --samples_per_genre 10 \
+  --samples_per_genre 100 \
+  --candidate_pool_size 3000 \
   --candidate_labels business entertainment politics sport tech
 ```
 
