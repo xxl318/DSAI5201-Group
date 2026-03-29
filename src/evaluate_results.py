@@ -45,7 +45,7 @@ def add_basic_features(df: pd.DataFrame) -> pd.DataFrame:
     summary_text = df["generated_summary"].fillna("").astype(str)
 
     df["is_bullet_format"] = summary_text.str.contains(
-        r"(?m)^\s*(?:-|\u2022)",
+        r"(?m)^\s*(?:-|•)",
         regex=True,
         na=False,
     ).astype(int)

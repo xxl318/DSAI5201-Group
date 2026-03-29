@@ -18,7 +18,7 @@ import torch
 from datasets import load_dataset
 from tqdm import tqdm
 from transformers import pipeline
-
+from pathlib import Path
 
 DEFAULT_LABELS = ["business", "entertainment", "politics", "sport", "tech"]
 
@@ -113,8 +113,11 @@ def main() -> None:
             "Increase candidate_pool_size if you want a perfectly balanced set."
         )
 
-    df.to_csv(args.output_csv, index=False)
-    print(f"Saved prepared dataset to: {args.output_csv}")
+    output_path = Path(args.output_csv)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    df.to_csv(output_path, index=False)
+    print(f"Saved prepared dataset to: {output_path}")
 
 
 if __name__ == "__main__":
