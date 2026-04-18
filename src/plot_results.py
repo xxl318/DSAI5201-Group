@@ -120,7 +120,14 @@ def save_grouped_bar_plot(
     )
 
     pivot_df = pivot_df.sort_index()
-    prompt_order = ["tldr", "bullet_points", "one_sentence", "fact_constrained"]
+    prompt_order = [
+        "tldr",
+        "bullet_points",
+        "one_sentence",
+        "sport_lead",
+        "fact_constrained",
+        "fact_constrained_politics",
+    ]
     ordered_cols = [c for c in prompt_order if c in pivot_df.columns] + [
         c for c in pivot_df.columns if c not in prompt_order
     ]
