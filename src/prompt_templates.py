@@ -33,10 +33,23 @@ PROMPT_TEMPLATES: Dict[str, str] = {
         "the main actors, and the outcome. Do not include opinions or unsupported details.\n\n"
         "Article:\n{article}\n"
     ),
+    "sport_lead": (
+        "You are a sports news editor. Write exactly one sentence as a compact sports news lead. "
+        "Focus on the main event, the key person or team, and the outcome. "
+        "Keep it factual and concise, with no extra background unless essential.\n\n"
+        "Article:\n{article}\n"
+    ),
     "fact_constrained": (
         "You are a factual summarization system. Summarize the following article in exactly 2 sentences. "
         "Sentence 1 should state the main event and actors. Sentence 2 should state the consequence or context. "
         "Keep all names, dates, and numbers accurate. No speculation. No extra details.\n\n"
+        "Article:\n{article}\n"
+    ),
+    "fact_constrained_politics": (
+        "You are a political news editor. Summarize the following article in exactly 2 sentences. "
+        "Sentence 1 should state the main political event, decision, or announcement and identify the key actors. "
+        "Sentence 2 should state the main consequence, response, or essential political context. "
+        "Preserve names, dates, locations, and numbers accurately. Do not add unsupported details.\n\n"
         "Article:\n{article}\n"
     ),
 }
