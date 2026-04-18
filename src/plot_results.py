@@ -37,8 +37,16 @@ def ensure_required_columns(df: pd.DataFrame, required: list[str], name: str) ->
         raise ValueError(f"{name} is missing required columns: {missing}")
 
 
-def sort_prompt_order(df: pd.DataFrame, prompt_col: str = "prompt_name") -> pd.DataFrame:
-    preferred_order = ["tldr", "bullet_points", "one_sentence", "fact_constrained"]
+def sort_prompt_order_extra_persona(df: pd.DataFrame, prompt_col: str = "prompt_name") -> pd.DataFrame:
+    # preferred_order = ["tldr", "bullet_points", "one_sentence", "fact_constrained"]
+    preferred_order = [
+        "tldr",
+        "bullet_points",
+        "one_sentence",
+        "sport_lead",
+        "fact_constrained",
+        "fact_constrained_politics",
+    ]
     existing = [p for p in preferred_order if p in df[prompt_col].unique()]
     remaining = sorted([p for p in df[prompt_col].unique() if p not in existing])
     order = existing + remaining
